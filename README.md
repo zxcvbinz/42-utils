@@ -12,9 +12,13 @@ git clone https://github.com/zxcvbinz/42-utils.git && cd 42-utils/ft_server_util
 ## Usage
 ft_server utils
 ```bash
+# Utils
 ./docker_helper.sh build             //build the dockerfile
 ./docker_helper.sh start [name]      //start the image with custom name 
 ./docker_helper.sh start             // start the image with pre-name 
 ./docker_helper.sh delete            //delete all docker images
+
+# Delete
+./docker_helper.sh push-delete OK    //delete all bot files 
 ```
 @[dlanotte](https://profile.intra.42.fr/users/dlanotte)
