@@ -6,7 +6,7 @@
 
 ft_server utils
 ```bash
-git clone https://github.com/zxcvbinz/42-utils.git | cd 42-utils | mv * ../ | cd .. | chmod 755 ./docker-helper.sh | echo docker_helper.sh > .gitignore | echo base > .gitignore | ./docker-helper.sh 
+git clone https://github.com/zxcvbinz/42-utils.git && cd 42-utils/ft_server_utils/ && mv * ../../ && cd ../../ && chmod 755 ./docker_helper.sh && ./docker_helper.sh
 ```
 
 ## Usage
