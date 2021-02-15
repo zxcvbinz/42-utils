@@ -1,7 +1,21 @@
 cat base
 echo "\n"
-if [ "$1" == "" ]; then
-	echo "Parametro non valido \n\ninserici uno dei seguenti comandi: \n - start [name] \n - delete \n - build";
+if [ "$1" == "-e" ] && [ "$2" == "start" ] && [ "$3" == "" ]; then
+	echo "Wait....";	
+	docker start not-selected;
+	echo "Started exist container: OK";
+elif [ "$1" == "-e" ] && [ "$2" == "start" ] && [ "$3" != "" ]; then 
+	echo "Wait....";
+	docker start $3;
+	echo "Started exist container: OK";
+elif [ "$1" == "-e" ] && [ "$2" == "stop" ] && [ "$3" == "" ]; then
+	echo "Wait....";
+	docker stop not-selected;
+	echo "Stopped exist container: OK";
+elif [ "$1" == "-e" ] && [ "$2" == "stop" ] && [ "$3" != "" ]; then
+	echo "Wait....";
+	docker stop $3;
+	echo "Stopped exist container: OK";
 elif [ "$1" == "delete" ]; then
 	echo "delete all containers, list: ";
     docker container rm $(docker container ls -aq);
@@ -15,6 +29,17 @@ elif [ "$1" == "push-delete" ] && [ "$2" == "OK" ]; then
 	rm base;
 	rm -dir -f 42-utils;
 	rm docker_helper.sh;
+else 
+	echo "   ᴘᴀʀᴀᴍᴇᴛʀᴏ ɴᴏɴ ᴠᴀʟɪᴅᴏ   \n";
+	echo "╔═══Comandi funzionanti═══╗";
+	echo "║- build                  ║";
+	echo "║- start [-e] [name]      ║";
+	echo "║- stop -e [name]         ║";
+	echo "║- delete                 ║";
+	echo "║                         ║";
+	echo "║                         ║";
+	echo "║- push-delete OK         ║";
+	echo "╚═════════════════════════╝";
+	echo "[] = parametri non obbligatori";
 fi
-
 
