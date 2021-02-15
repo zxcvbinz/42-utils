@@ -33,8 +33,8 @@ else
 	echo "   ᴘᴀʀᴀᴍᴇᴛʀᴏ ɴᴏɴ ᴠᴀʟɪᴅᴏ   \n";
 	echo "╔═══Comandi funzionanti═══╗";
 	echo "║- build                  ║";
-	echo "║- start [-e] [name]      ║";
-	echo "║- stop -e [name]         ║";
+	echo "║- [-e] start [name]      ║";
+	echo "║- -e stop [name]         ║";
 	echo "║- delete                 ║";
 	echo "║                         ║";
 	echo "║                         ║";
