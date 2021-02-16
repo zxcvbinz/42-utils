@@ -26,7 +26,7 @@
 
 ft_server utils
 ```bash
-git clone https://github.com/zxcvbinz/42-utils.git && cd 42-utils && chmod 755 ./install.sh && ./install.sh docker-utils https://github.com/zxcvbinz/42-utils.git 
+git clone https://github.com/zxcvbinz/42-utils.git && cd 42-utils && chmod 755 ./install.sh && ./install.sh docker-utils https://github.com/zxcvbinz/42-utils.git && cd .. 
 ```
 
 ## Usage
