@@ -73,7 +73,6 @@ elif [ "$1" == "push-delete" ] && [ "$2" == "OK" ]; then
 	rm base;
 	rm -dir -f 42-utils;
 	rm docker_helper.sh;
-	echo "Bye Bye from 42 DockerBot by dlanotte.....";
 else 
 	legend parameter;
 fi
