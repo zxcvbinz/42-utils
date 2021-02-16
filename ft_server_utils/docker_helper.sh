@@ -1,6 +1,50 @@
-cat base
-echo "\n"
-if [ "$1" == "-e" ] && [ "$2" == "start" ] && [ "$3" == "" ]; then
+DARKGRAY='\033[1;30m';
+GREEN='\033[0;32m';
+LIGHTPURPLE='\033[1;35m';
+CYAN='\033[0;36m';
+RED='\033[0;31m';
+LIGHTPURPLE='\033[1;35m'
+ORANGE='\033[0;33m'
+if [ "$1" != "init" ]; then 
+	echo "${CYAN}";
+	if [ $(( ( RANDOM % 10 )  + 1 )) == 9 ] || [ $(( ( RANDOM % 10 )  + 1 )) == 8 ]; then 
+		sed -n 28,34p base;
+	elif [ $(( ( RANDOM % 10 )  + 1 )) == 5 ] || [ $(( ( RANDOM % 10 )  + 1 )) == 4 ]; then 
+		sed -n 36,43p base;
+	elif [ $(( ( RANDOM % 10 )  + 1 )) == 2 ] || [ $(( ( RANDOM % 10 )  + 1 )) == 1 ]; then 
+		sed -n 45,52p base;
+	elif [ $(( ( RANDOM % 10 )  + 1 )) == 7 ]; then 
+		sed -n 54,64p base;
+	else 
+		sed -n 1,9p base;
+	fi
+	echo "";
+fi 
+legend(){
+	if [ "$1" == "parameter" ]; then 
+		echo " ${LIGHTPURPLE}  ᴘᴀʀᴀᴍᴇᴛʀᴏ ɴᴏɴ ᴠᴀʟɪᴅᴏ ${GREEN} ";
+	else
+		echo "${ORANGE}";
+		sed -n 11,26p base;
+		echo "${GREEN}";
+	fi
+	echo "╔═══Comandi funzionanti═══╗";
+	echo "║- build                  ║";
+	echo "║- ${RED}[-e] ${GREEN}start ${RED}[name] ${GREEN}     ║";
+	echo "║- -e stop ${RED}[name]${GREEN}         ║";
+	echo "║- delete                 ║";
+	echo "║                         ║";
+	echo "║                         ║";
+	echo "║- ${LIGHTPURPLE}push-delete OK     ${GREEN}    ║";
+	echo "╚═════════════════════════╝";
+	echo "";
+	echo "${RED}[X]${GREEN} = Parametri non obbligatori";
+	echo "${LIGHTPURPLE}[X]${GREEN} = Cancella bot e tutti i suoi file";
+}
+if [ "$1" == "init" ]; then
+	legend;
+echo "${GREEN}";
+elif [ "$1" == "-e" ] && [ "$2" == "start" ] && [ "$3" == "" ]; then
 	echo "Wait....";	
 	docker start not-selected;
 	echo "Started exist container: OK";
@@ -30,16 +74,5 @@ elif [ "$1" == "push-delete" ] && [ "$2" == "OK" ]; then
 	rm -dir -f 42-utils;
 	rm docker_helper.sh;
 else 
-	echo "   ᴘᴀʀᴀᴍᴇᴛʀᴏ ɴᴏɴ ᴠᴀʟɪᴅᴏ   \n";
-	echo "╔═══Comandi funzionanti═══╗";
-	echo "║- build                  ║";
-	echo "║- [-e] start [name]      ║";
-	echo "║- -e stop [name]         ║";
-	echo "║- delete                 ║";
-	echo "║                         ║";
-	echo "║                         ║";
-	echo "║- push-delete OK         ║";
-	echo "╚═════════════════════════╝";
-	echo "[] = parametri non obbligatori";
+	legend parameter;
 fi
-
