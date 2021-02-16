@@ -13,7 +13,7 @@ if [ "$1" == "docker-utils" ]; then
 	echo "Cloned OK";
 	echo "${WHITE}";
 	echo "Installing......";
-	cd 42-utils/ft_server_utils/ 
+	cd ft_server_utils/ 
 	mv * ../../
 	cd ../../ 
 	chmod 755 ./docker_helper.sh 
