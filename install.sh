@@ -123,7 +123,7 @@ ft_install(){
 		echo -e "Installing......";
 		cd 42-utils/ft_server_utils
 		mv * ../../../
-		cd ../../../ 
+		cd ../../../../ 
 		chmod 755 ./docker_helper.sh 
 		echo base >> .gitignore 
 		echo docker_helper.sh >> .gitignore  
