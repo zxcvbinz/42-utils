@@ -122,8 +122,8 @@ ft_install(){
 		echo -e "${RED}Cloned OK${WHITE}\n";
 		echo -e "Installing......";
 		cd 42-utils/ft_server_utils
-		mv * ../../
-		cd ../../ 
+		mv * ../../../
+		cd ../../../ 
 		chmod 755 ./docker_helper.sh 
 		echo base >> .gitignore 
 		echo docker_helper.sh >> .gitignore  
