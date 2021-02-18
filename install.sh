@@ -1,5 +1,5 @@
 #!/bin/bash
-programs=("Docker42Helper")
+programs=("Docker42Helper" "SetWorkSpace")
 # ("test2" "test1" "test3")
 bold=`tput bold`
 underline=`tput smul`
@@ -130,6 +130,19 @@ ft_install(){
 		rm -dir -f 42-utils
 		./docker_helper.sh init
 		rm -f install.sh
+	elif [ "$1" == "set-workspace-dark" ]; then
+		echo -e "Selected SetWorkSpace-Utils.....";
+		echo -e "Clone repository.......";
+		git clone https://github.com/zxcvbinz/42-utils.git
+		echo -e "${RED}Cloned OK${WHITE}\n";
+		echo -e "Installing......";
+		cd 42-utils/tools
+		mv * ../../../
+		cd ../../../
+		chmod 755 ./set-workspace-dark.sh
+		rm -dir -f 42-utils
+		./set-workspace-dark.sh
+		rm -f install.sh
 fi
 }
 
@@ -145,4 +158,10 @@ case $Choose in
 		clear;
 		ft_install docker-utils;
 		;;
+	SetWorkSpace)
+		echo -e "${red}Selected SetWorkSpace!\n";
+		echo -e "${WHITE}Installing SetWorkSpace.....";
+		sleep 2;
+		clear;
+		ft_install set-workspace-dark;
 esac

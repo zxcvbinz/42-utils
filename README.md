@@ -1,5 +1,5 @@
 
-```
+```bash
        444444444   222222222222222    
       4::::::::4  2:::::::::::::::22  
      4:::::::::4  2::::::222222:::::2 
@@ -11,7 +11,7 @@
 4::::::::::::::::4  22::::::::222       888     888 888    d8b 888   
 4444444444:::::444 2:::::22222          888     888 888    Y8P 888       
           4::::4  2:::::2               888     888 888        888          
-          4::::4  2:::::2               888     888 888888 888 888 .d8888b  	
+          4::::4  2:::::2               888     888 888888 888 888 .d8888b      
           4::::4  2:::::2       222222  888     888 888    888 888 88K      
         44::::::442::::::2222222:::::2  888     888 888    888 888 "Y8888b. 
         4::::::::42::::::::::::::::::2  Y88b. .d88P Y88b.  888 888      X88 
@@ -20,17 +20,17 @@
 
 # 42Utils 2021 by dlanotte
 
-42Utils files
-
-## Installation
-
-ft_server utils
+### Installation
 ```bash
 git clone https://github.com/zxcvbinz/42-utils.git && cd 42-utils && chmod 755 ./install.sh && ./install.sh && cd ..
 ```
+And select the program...
+
 
 ## Usage
-ft_server utils
+### ft_server utils 
+
+Install this program in the [ft_server] / [dockerfile] folder 
 ```bash
 # Utils
 ./docker_helper.sh build             // build the dockerfile
@@ -43,4 +43,8 @@ ft_server utils
 # Delete
 ./docker_helper.sh push-delete OK    //delete all bot files 
 ```
+### set-workspace-dark
+Install on Desktop :)
+
+
 @[dlanotte](https://profile.intra.42.fr/users/dlanotte)
