@@ -153,7 +153,7 @@ ft_install(){
 		mv 42utils_command .42utils-commands
 		cd .42utils-commands
 		chmod 755 *
-		echo "export PATH=\"$HOME/.42utils-commands:$PATH\"" >> ~/.zshrc  
+		echo "export PATH=\"\$HOME/.42utils-commands:\$PATH\"" >> ~/.zshrc  
 		cd ..
 		mv -f .42utils-commands ~
 		cd ../../../
