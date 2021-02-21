@@ -1,5 +1,5 @@
 
-```bash
+```python
        444444444   222222222222222    
       4::::::::4  2:::::::::::::::22  
      4:::::::::4  2::::::222222:::::2 
@@ -33,18 +33,25 @@ And select the program...
 Install this program in the [ft_server] / [dockerfile] folder 
 ```bash
 # Utils
-./docker_helper.sh build             // build the dockerfile
-./docker_helper.sh start [name]      // start the image with custom name 
-./docker_helper.sh start             // start the image with pre-name 
-./docker_helper.sh -e start [name]   // start already exist container 
-./docker_helper.sh delete            // delete all docker images
-./docker_helper.sh -e stop [name]    // stop already exist container 
+./docker_helper.sh build             # build the dockerfile
+./docker_helper.sh start [name]      # start the image with custom name 
+./docker_helper.sh start             # start the image with pre-name 
+./docker_helper.sh -e start [name]   # start already exist container 
+./docker_helper.sh delete            # delete all docker images
+./docker_helper.sh -e stop [name]    # stop already exist container 
 
 # Delete
-./docker_helper.sh push-delete OK    //delete all bot files 
+./docker_helper.sh push-delete OK    # delete all bot files 
 ```
 ### set-workspace-dark
 Install on Desktop :)
 
+### 42utils-command
+Install on terminal and use new command!
+```bash
+- 42delete   #example 42delete .DS_Store delete all DS_Store files from the folder
+- 42author   #on the next update with the command 42author update, update the program
+- 42search   #example 42search .DS_Store search all DS_Store files in the folder
+```
 
 @[dlanotte](https://profile.intra.42.fr/users/dlanotte)

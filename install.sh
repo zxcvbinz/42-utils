@@ -159,6 +159,8 @@ ft_install(){
 		cd ../../../
 		rm -dir -f 42-utils
 		rm -f install.sh
+		export PATH="$HOME/.42utils-commands:$PATH";
+		42author -v;
 fi
 }
 
