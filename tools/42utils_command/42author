@@ -20,7 +20,7 @@
 ##################################################################################################  
 clear;
 echo "";
-sed -n 4,19p 42delete | cut -c 2-;
+sed -n 4,19p ~/.42utils-commands/42delete | cut -c 2-;
 echo "";
 if [ "$1" = "-v" ]; then 
 	cat version.txt;

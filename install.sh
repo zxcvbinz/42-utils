@@ -1,5 +1,5 @@
 #!/bin/bash
-programs=("Docker42Helper" "SetWorkSpace" "42utils-command [beta]")
+programs=("Docker42Helper" "SetWorkSpace" "42utils-command-BETA")
 # ("test2" "test1" "test3")
 bold=`tput bold`
 underline=`tput smul`
@@ -149,13 +149,14 @@ ft_install(){
 		git clone https://github.com/zxcvbinz/42-utils.git
 		echo -e "${RED}Cloned OK${WHITE}\n";
 		echo -e "Installing......";
-		install_folder=$(pwd)
 		cd 42-utils/tools
 		mv 42utils_command .42utils-commands
-		mv .42utils-commands ~/
-		cd ~/.42utils-commands
+		cd .42utils-commands
 		chmod 755 *
-		cd $(install_folder);
+		echo export PATH="$HOME/.42utils-commands:$PATH" >> ~/.zshrc  
+		cd ..
+		mv -f .42utils-commands ~
+		cd ../../../
 		rm -dir -f 42-utils
 		rm -f install.sh
 fi
@@ -179,7 +180,8 @@ case $Choose in
 		sleep 2;
 		clear;
 		ft_install set-workspace-dark;
-	42utils-command [beta])
+		;;
+	42utils-command-BETA)
 		echo -e "${red}Selected 42utils-command!\n";
 		echo -e "${WHITE}Installing 42utils-command.....";
 		sleep 2;
