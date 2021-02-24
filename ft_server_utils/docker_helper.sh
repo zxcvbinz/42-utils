@@ -31,11 +31,14 @@ legend(){
 	fi
 	echo -e  "╔═══Comandi funzionanti═══╗";
 	echo -e  "║- build                  ║";
-	echo -e  "║- ${RED}[-e] ${GREEN}start ${RED}[name] ${GREEN}     ║";
+	echo -e  "║                         ║";
+	echo -e  "║- ${RED}[-e] [-d]${GREEN} start ${RED}[name] ${GREEN}║";
+	echo -e  "║                         ║";
 	echo -e  "║- -e stop ${RED}[name]${GREEN}         ║";
-	echo -e  "║- delete                 ║";
 	echo -e  "║                         ║";
+	echo -e  "║- delete ${RED}[name]${GREEN}          ║";
 	echo -e  "║                         ║";
+	echo -e  "╠═════════════════════════╣";
 	echo -e  "║- ${LIGHTPURPLE}push-delete OK     ${GREEN}    ║";
 	echo -e  "╚═════════════════════════╝";
 	echo -e  "";
@@ -44,23 +47,29 @@ legend(){
 }
 if [ "$1" == "init" ]; then
 	legend;
-echo -e  "${GREEN}";
 elif [ "$1" == "-e" ] && [ "$2" == "start" ] && [ "$3" == "" ]; then
 	echo -e  "Wait....";	
 	docker start not-selected;
-	echo -e  "Started exist container: OK";
+	echo -e  "Started exist container:${GREEN}OK${GREEN}";
 elif [ "$1" == "-e" ] && [ "$2" == "start" ] && [ "$3" != "" ]; then 
 	echo -e  "Wait....";
 	docker start $3;
-	echo -e  "Started exist container: OK";
+	echo -e  "Started exist in background mode container: ${GREEN}OK${GREEN}";
+elif [ "$1" == "-e" ] && [ "$2" == "-d" ] && [ "$3" == "start" ] && [ "$4" != "" ]; then 
+	echo -e  "Wait....";
+	docker start -i $4;
+	echo -e  "Started not in background mode exist container: ${GREEN}OK${GREEN}";
 elif [ "$1" == "-e" ] && [ "$2" == "stop" ] && [ "$3" == "" ]; then
 	echo -e  "Wait....";
 	docker stop not-selected;
-	echo -e  "Stopped exist container: OK";
+	echo -e  "Stopped exist container: ${GREEN}OK${GREEN}";
 elif [ "$1" == "-e" ] && [ "$2" == "stop" ] && [ "$3" != "" ]; then
 	echo -e  "Wait....";
 	docker stop $3;
-	echo -e  "Stopped exist container: OK";
+	echo -e  "Stopped exist container: ${GREEN}OK${GREEN}";
+elif [ "$1" == "delete" ] && [ "$2" != "" ]; then
+	echo -e  "delete $2: ";
+    docker container rm $2;
 elif [ "$1" == "delete" ]; then
 	echo -e  "delete all containers, list: ";
     docker container rm $(docker container ls -aq);
