@@ -1,0 +1,14 @@
+if [ -d "$HOME/goinfre/.Applications/Visual Studio Code.app/" ]; then
+	clear;
+else
+	brew cleanup
+	brew reinstall visual-studio-code
+fi
+
+
+if [ -d "$HOME/goinfre/.Applications/Godot.app/" ]; then
+	clear;
+else
+	brew cleanup
+	brew reinstall godot
+fi
