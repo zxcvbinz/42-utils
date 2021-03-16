@@ -52,6 +52,9 @@ Install on terminal and use new command!
 - 42delete   #example 42delete .DS_Store delete all DS_Store files from the folder
 - 42author   #on the next update with the command 42author update, update the program
 - 42search   #example 42search .DS_Store search all DS_Store files in the folder
+- 42doctor	[brew] #patch brew update error with brew parameter
+- 42setbrew [init-cask] #set brew dowload and install brew on computer, with init-cask set cask-application variable on .Applications folder
+- 42download ["https://file.it/file.pdf"] #download file with curl -O command 
 ```
 
 @[dlanotte](https://profile.intra.42.fr/users/dlanotte)
