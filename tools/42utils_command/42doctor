@@ -1,0 +1,5 @@
+if [ "$1" == "brew" ]; then
+	rm -fr $(brew --repo homebrew/core);
+	brew tap homebrew/core;
+	brew update;
+fi

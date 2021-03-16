@@ -1,14 +1,29 @@
 if [ -d "$HOME/goinfre/.Applications/Visual Studio Code.app/" ]; then
 	clear;
-else
+elif [ -d "$HOME/goinfre/.brew/Caskroom/visual-studio-code" ]; then
 	brew cleanup
 	brew reinstall visual-studio-code
+else
+	brew cleanup
+	brew install --cask visual-studio-code
 fi
-
 
 if [ -d "$HOME/goinfre/.Applications/Godot.app/" ]; then
 	clear;
+elif [ -d "$HOME/goinfre/.brew/Caskroom/godot" ]; then
+	brew cleanup
+	brew reinstall visual-studio-code
 else
 	brew cleanup
-	brew reinstall godot
+	brew install --cask godot
+fi
+
+if [ -d "$HOME/goinfre/.Applications/Postman.app/" ]; then
+	clear;
+elif [ -d "$HOME/goinfre/.brew/Caskroom/postman" ]; then
+	brew cleanup
+	brew reinstall postman
+else
+	brew cleanup
+	brew install --cask postman
 fi
