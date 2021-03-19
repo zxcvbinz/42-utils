@@ -19,8 +19,19 @@
 #        444444444422222222222222222222   "Y88888P"   "Y888 888 888  88888P' 
 ##################################################################################################    
 
-if [ "$1" != "" ]; then
-	curl -O $1;
+if ! defaults read -g AppleInterfaceStyle &> /dev/null; then
+	echo "Change to Dark mode......";
+    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
 else
-	echo "missing parameter [add URL]"; 
+    echo "Dark Mode is already activated [✅]";
 fi
+
+if [ -d "$HOME/goinfre/.brew" ]; then
+    echo "brew already installed [✅]";
+else
+    echo "Install Brew......";
+    git clone --depth=1 https://github.com/Homebrew/brew ~/goinfre/.brew;
+fi
+
+export PATH="$HOME/goinfre/.brew/bin:$HOME/goinfre/.brew/sbin:$PATH"
+

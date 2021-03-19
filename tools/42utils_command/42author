@@ -18,10 +18,27 @@
 #        4::::::::42::::::::::::::::::2  Y88b. .d88P Y88b.  888 888      X88 
 #        444444444422222222222222222222   "Y88888P"   "Y888 888 888  88888P' 
 ##################################################################################################  
+
+blue=`tput setaf 4`
+green=`tput setaf 2`
+WHITE='\033[1;37m'
+
+bar="";
+count=1;
 clear;
 echo "";
 sed -n 4,19p ~/.42utils-commands/42delete | cut -c 2-;
 echo "";
 if [ "$1" = "-v" ]; then 
 	cat ~/.42utils-commands/version.txt;
-fi
+elif [ "$1" = "update" ]; then
+	while [ $count -lt 10 ]; do
+		bar=$bar"▇▇▇";
+		echo -ne ${WHITE}$bar"${WHITE}["$count"0%]\r";
+		sleep 0.5;
+		(( count += 1 ))
+	done
+	rm -dir -f ~/.42utils-commands;
+	git clone https://github.com/zxcvbinz/42-utils.git && cd 42-utils && chmod 755 ./install.sh && ./install.sh && cd ..
+	echo -ne ${green}$bar${WHITE}"[UPDATED "$count"0%]";
+fi 

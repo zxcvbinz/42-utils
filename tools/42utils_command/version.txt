@@ -1,2 +1,2 @@
-Version: 42utils version 0.1.6-brew-edition
+Version: 42utils version 0.1.7-update-edition
 
