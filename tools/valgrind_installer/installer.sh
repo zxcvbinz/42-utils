@@ -56,7 +56,7 @@ InstallValgrind(){
 	./autogen.sh
 	./configure --prefix=$HOME/goinfre/.valgrind --enable-only64bit
 	make 
-	sudo make install
+	make install
 	####  echo "export=\"\$HOME/Desktop/test/bin:\$PATH\"" >> ~/.zshrc  
 	####  export PATH="$HOME/Desktop/test/bin:$PATH";
 	###---###---###---###---###

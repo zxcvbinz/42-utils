@@ -1,0 +1,179 @@
+#!/bin/bash
+source ./functions
+##################################################################################################
+#       444444444   222222222222222    
+#      4::::::::4  2:::::::::::::::22  
+#     4:::::::::4  2::::::222222:::::2 
+#    4::::44::::4  2222222     2:::::2 
+#   4::::4 4::::4              2:::::2 
+#  4::::4  4::::4              2:::::2 
+# 4::::4   4::::4           2222::::2  
+#4::::444444::::444    22222::::::22     by dlanotte
+#4::::::::::::::::4  22::::::::222       888     888 888    d8b 888   
+#4444444444:::::444 2:::::22222          888     888 888    Y8P 888       
+#          4::::4  2:::::2               888     888 888        888          
+#          4::::4  2:::::2               888     888 888888 888 888 .d8888b      
+#          4::::4  2:::::2       222222  888     888 888    888 888 88K      
+#        44::::::442::::::2222222:::::2  888     888 888    888 888 "Y8888b. 
+#        4::::::::42::::::::::::::::::2  Y88b. .d88P Y88b.  888 888      X88 
+#        444444444422222222222222222222   "Y88888P"   "Y888 888 888  88888P' 
+################################################################################################## 
+#██████╗ ██╗███╗   ███╗██████╗ ██╗     ███████╗
+#██╔════╝██║████╗ ████║██╔══██╗██║     ██╔════╝
+#███████╗██║██╔████╔██║██████╔╝██║     █████╗  
+#╚════██║██║██║╚██╔╝██║██╔═══╝ ██║     ██╔══╝  
+#███████║██║██║ ╚═╝ ██║██║     ███████╗███████╗
+#╚══════╝╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝
+#                                by dlanotte              
+#             ██████╗ ██╗████████╗             
+#            ██╔════╝ ██║╚══██╔══╝             
+#            ██║  ███╗██║   ██║                
+#            ██║   ██║██║   ██║                
+#            ╚██████╔╝██║   ██║                
+#             ╚═════╝ ╚═╝   ╚═╝                
+##----##----##----##----##----##  COLORS
+bold=`tput bold`
+underline=`tput smul`
+black=`tput setaf 0`
+red=`tput setaf 1`
+yellow=`tput setaf 3`
+green=`tput setaf 2`
+blue=`tput setaf 4`
+magenta=`tput setaf 5`
+reset=`tput sgr0`
+bell=`tput bel`
+WHITE='\033[1;37m'
+DARKGRAY='\033[1;30m';
+GREEN='\033[0;32m';
+LIGHTPURPLE='\033[1;35m';
+CYAN='\033[0;36m';
+RED='\033[0;31m';
+LIGHTPURPLE='\033[1;35m'
+ORANGE='\033[0;33m'
+#a
+
+##----##----##----##----##----##  FUNCTIONS
+
+git_remote_manager(){
+	Write_Logo
+	commads=("Add_origin_URL" "Add_custom_URL" "Remote_list" "Change_remote_URL" "Delete_remote" "Back_to_home")
+	Choose "Manage git remote:";
+	case $Choose in
+		Add_origin_URL)
+			clear;
+			Write_Logo
+			echo "Write the repository url\n";
+			read URL
+			git remote add origin $URL;
+			./simple-git
+			;;
+		Remote_list)
+			clear;
+			Write_Logo
+			echo -e "${bell}${underline}${bold}${yellow}Git Remote list\n${reset}"
+			git remote -v | grep push
+			echo -e "\n${bell}${bold}Press any key to return to Main menu${reset}";
+			read
+			./simple-git
+			;;
+		Add_Custom_URL)
+			clear;
+			Write_Logo
+			echo "Write the remote name\n";
+			read NAME
+			echo "Write the repository url\n";
+			read URL
+			git remote add $NAME $URL;
+			./simple-git
+			;;
+		Change_remote_URL)
+			clear;
+			Write_Logo
+			echo "Write the remote name to change\n";
+			read NAME
+			echo "Write the new name\n";
+			read NEW_NAME
+			echo "Write the new repository url\n";
+			read URL
+			git remote rename $NAME "old_"$NAME
+			git remote add $NEW_NAME $URL
+			./simple-git
+			;;
+		Delete_remote)
+			clear;
+			Write_Logo
+			echo -e "${bell}${underline}${bold}${yellow}Git Remote list\n${reset}"
+			git remote -v | grep push
+			echo -e "\n\nWrite the remote name to delete (press enter to abort)\n";
+			read NAME
+			git remote remove $NAME
+			./simple-git
+			;;
+		Back_to_home)
+			./simple-git
+			;;
+	esac
+}
+
+Write_Logo(){
+	echo -e "${ORANGE}"
+	sed -n 21,33p simple-git | cut -c 2-
+	echo -e "${WHITE}"
+}
+
+Push_Choose(){
+	Write_Logo
+	commads=("First_push_to_origin" "Git_remote" "Push" "status" "Back_to_home")
+	Choose "Choose your push option:";
+	case $Choose in
+		First_push_to_origin)
+			git push -u origin master
+			;;
+		Git_remote)
+			git_remote_manager
+			;;
+		Back_to_home)
+			./simple-git
+			;;
+	esac
+}
+##----##----##----##----##----##  VARIABLES
+clear
+Write_Logo
+Check
+if [ $git_status == 0 ]; then 
+	echo -e "${RED}❌ [ GIT NOT FOUND ] ❌\n";
+	commads=("Init_repository" "Exit")
+else
+	echo -e "${GREEN}✅ [ GIT FOUNDED ] ✅\n";
+	commads=("Add_files" "Commit_files" "Git_status" "Git_remote" "Pull_repository" "Push_to_repository" "Delete_repository" "Exit" )
+fi
+stop=0
+##----##----##----##----##----## 
+
+Choose "Simple-git menu:";
+clear
+case $Choose in
+	Push_to_repository)
+		Push_Choose
+		;;
+	Init_repository)
+		git init
+		./simple-git
+		;;
+	Git_remote)
+		git_remote_manager
+		;;
+	Delete_repository)
+		commads=("Yes" "No" )
+		clear
+		Write_Logo
+		Choose "Are you sure to delete repository?";
+		case $Choose in
+			Yes)
+				rm -dir -f .git
+			;;
+		esac
+		./simple-git
+		;;
+esac
