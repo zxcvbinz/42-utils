@@ -61,5 +61,13 @@ Install Valgrind on macOS terminal! [Cooming Soon]
 ```bash
 Cooming soon....
 ```
+### Simple-git Cooming soon
+Tool to help you with git problem!! [Cooming Soon]
+```bash
+Cooming soon....
+```
+Screenshot
+![image](https://i.imgur.com/vi5Ki6g.jpg)
+
 
 @[dlanotte](https://profile.intra.42.fr/users/dlanotte)
