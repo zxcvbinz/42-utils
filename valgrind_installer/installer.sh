@@ -32,61 +32,55 @@ Install42_Utils(){
 	mv 42utils_command .42utils-commands
 	cd .42utils-commands
 	chmod 755 *
-	#echo "export PATH=\"\$HOME/.42utils-commands:\$PATH\"" >> ~/.zshrc  
+	echo "export PATH=\"\$HOME/.42utils-commands:\$PATH\"" >> ~/.zshrc  
 	cd ..
-	mv -f .42utils-commands ~/Desktop
-	cd ../../../
+	mv -f .42utils-commands ~/
+	cd ../../
 	rm -dir -f 42-utils
 	rm -f install.sh
 	export PATH="$HOME/.42utils-commands:$PATH";
 }
-
 InstallValgrind(){
 	42setbrew;
 	#brew remove valgrind #remove valgrind if exist
 	#brew tap LouisBrunner/valgrind
-	#brew install --HEAD LouisBrunner/valgrind/valgrind #NOT WORKING WITHOUT SUDO
-
-	
+	#brew install --HEAD LouisBrunner/valgrind/valgrind #NOT WORKING WITHOUT SUDO	
 	###---###---###---###---###---###
 	###   MANUAL_INSTALLER_TEST   ###
 	###---###---###---###---###---###
-	git clone https://github.com/LouisBrunner/valgrind-macos.git
-	cd valgrind-macos
+	echo "Install Valgrind on goinfre...."
+	git clone https://github.com/LouisBrunner/valgrind-macos.git ~/Desktop/valgrind-installer
+	brew install automake
+	cd ~/Desktop/valgrind-installer/
 	./autogen.sh
 	./configure --prefix=$HOME/goinfre/.valgrind --enable-only64bit
-	make 
+	make
 	make install
-	####  echo "export=\"\$HOME/Desktop/test/bin:\$PATH\"" >> ~/.zshrc  
-	####  export PATH="$HOME/Desktop/test/bin:$PATH";
-	###---###---###---###---###
-
-
+	rm -dir -f ~/Desktop/valgrind-installer/
+	clear
+	echo "export=\"\$HOME/Desktop/test/bin:\$PATH\"" >> ~/.zshrc  
+	clear
+	42author -v;
+	echo -ne ${green}$bar${WHITE}"[Valgrind installed ✅]";
 }
 #------------------------------------#
-
 echo "COMING SOON....";
 
-#echo -e "Started Valgrind installer.......";
-#Install42_Utils & while [ $count -lt 10 ]; do
-#	bar=$bar"▇▇▇";
-#	echo -ne ${WHITE}$bar"${WHITE}["$count"0%]\r";
-#	sleep 0.5;
-#	(( count += 1 ))
-#done
+echo -e "Started Valgrind installer.......";
+Install42_Utils & while [ $count -lt 10 ]; do
+	bar=$bar"▇▇▇";
+	echo -ne ${WHITE}$bar"${WHITE}["$count"0%]\r";
+	sleep 0.5;
+	(( count += 1 ))
+done
 
-#42author -v;
-#echo -ne ${green}$bar${WHITE}"[42 UTILS INSTALLED "$count"0%]";
-#echo "\n\n\nWAIT FEW SECOND.......\n\n";
-#sleep 1.5;
-#clear;
-#bar="";
-#count=1;
-#42author
-#echo "Install Brew on goinfre...."
-#InstallValgrind & while [ $count -lt 10 ]; do
-#	bar=$bar"▇▇▇";
-#	echo -ne ${WHITE}$bar"${WHITE}["$count"0%]\r";
-#	sleep 0.5;
-#	(( count += 1 ))
-#done
+42author -v;
+echo -ne ${green}$bar${WHITE}"[42 UTILS INSTALLED "$count"0%]";
+echo "\n\n\nWAIT FEW SECOND.......\n\n";
+sleep 1.5;
+clear;
+bar="";
+count=1;
+42author
+echo "Install Brew on goinfre...."
+#InstallValgrind
