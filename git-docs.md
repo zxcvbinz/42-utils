@@ -1,7 +1,11 @@
 # git guida 2021 - versione italiana
 
-Guida veloce a git per principianti
-
+Guida veloce a git per principianti #42Roma #42
+##### ❌ Avvertenze ❌
+`Ciò che viene cancellato non sempre può essere recuperato, quindi prima di eseguire comandi di cui non si conosce il fine è bene eseguire un backup. Questa guida non riporterà indietro file eliminati, ne vi spiegherà come farlo `.
+## Descrizione progetto
+Una guida per aiutare tutti coloro che hanno problemi nel uso quotidiano di git, guida fatta in maniera open-source, si accettano miglioramenti, aggiunte, correzioni e contributi di ogni tipo, nella guida si è cercato di spiegare tutti i termini usati, se dovesse mancare qualcosa segnalarlo.            
+grazie. 
 ## Descrizione generale
 
 git è un software che implementa un sistema di controllo di versione distribuito o decentralizzato, ovvero una tipologia di controllo di versione che permette di tenere traccia delle modifiche e delle versioni apportate al codice sorgente del software, senza la necessità di dover utilizzare un server centrale, come nei casi classici.
@@ -54,7 +58,8 @@ to read about a specific subcommand or concept.
 - Non tracciato `il file esiste ma git non ne tiene conto al fine del invio su server`
 - Tracciato `il file viene tracciato, git sa dell'esistenza e ne tiene traccia della copia`
 - Committato `viene aggiunta una descrizione al file e viene fatta una copia dello stesso associata all'id della commit`
-- Pushato `il file esiste sul server e la versione attuale corrisponde all'id della commit fatta sul client`
+- Pushato `il file esiste sul server e la versione attuale corrisponde all'id della commit fatta sul client`      
+- altri tipi di file -->  [git-docs](https://git-scm.com/docs/git-status) (Inglese)
 
 ## Consigli generali 
 - In caso di condivisione del repository è sempre bene fare un git pull del repository, in modo da aggiornarlo all'ultima versione in caso non si stia lavorando su due branch diversi.    
@@ -106,6 +111,37 @@ Adesso, lanciando nuovamente il comando: `find . -name ".git"` la risposta corre
 ```git
 Initialized empty Git repository in /Users/Users-test/Desktop/folder/.git/             
 ```
+
+`git pull` crea una cartella .git dove viene eseguito il comando, questa cartella serve per contenere tutte le impostazioni del repository 
+###### true response
+
+```git
+❯ git pull
+
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/zxcvbinz/42cursus
+   8919644..5c3644a  master     -> origin/master
+Updating 8919644..5c3644a
+Fast-forward
+ README.md | 6 ++++++
+ test_file.md | 6 ++++++
+ 1 file changed, 6 insertions(+)       
+```
+###### another response
+```git
+❯ git pull
+
+Already up to date.                     # Repo aggiornato server-client (copie uguali di file tracciati)
+```
+```git 
+❯ git pull
+
+fatal: not a git repository (or any parent up to mount point /Users)      # git non presente
+```
 `git clone [url] [!name]` effettua un clone di un repository già esistente portando con se la cartella .git quindi tutta la configurazione di quel repo
 ###### true response
 
@@ -144,7 +180,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-Tipi principali di files = Untracked, removed, added, modified ---|--- per altri tipi: [@git-docs](https://git-scm.com/docs/git-status)
+
 
 `git add [nome file]` aggiunge il file ai documenti tracciati, con `git add *` aggiungi tutti i file della cartella
 ###### first response = alcun file individuato, aggiungere file per trovare le aggiunte
@@ -177,4 +213,7 @@ progetto git semplificato attraverso una finta GUI in zsh/bash repo: [42-utils-s
 Se vuoi contribuire contattami! [@dlanotte](https://profile.intra.42.fr/users/dlanotte)
 
 ## Contributing
-[@dlanotte](https://profile.intra.42.fr/users/dlanotte)
+[@dlanotte](https://profile.intra.42.fr/users/dlanotte)    
+ 
+## Issues
+Per segnalare errori, aggiunte, nuove problematiche intra [dlanotte](https://profile.intra.42.fr/users/dlanotte), o [skype](https://join.skype.com/invite/ibNkhh8fTBg9)
