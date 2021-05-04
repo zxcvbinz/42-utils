@@ -24,7 +24,7 @@ cooming soon...
             ╚██████╔╝██║   ██║                                     ╚██████╔╝██║   ██║
              ╚═════╝ ╚═╝   ╚═╝                                      ╚═════╝ ╚═╝   ╚═╝
 
-✅ [ GIT FOUNDED ] ✅                                   ❌ [ GIT NOT FOUND ] ❌
+✅ [ GIT FOUND ] ✅                                   ❌ [ GIT NOT FOUND ] ❌
 
 Simple-git menu:                                       Simple-git menu:
 
