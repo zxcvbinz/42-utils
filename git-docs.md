@@ -1,4 +1,4 @@
-# git guide 2021 
+# git guida 2021 - versione italiana
 
 Guida veloce a git per principianti
 
@@ -59,9 +59,11 @@ to read about a specific subcommand or concept.
 - In caso di condivisione del repository è sempre bene fare un git pull del repository, in modo da aggiornarlo all'ultima versione in caso non si stia lavorando su due branch diversi
 *Branch = diversa copia di progetto con file diversi o uguali sullo stesso repository (di solito su un progetto c'è il branch `master` che contiene la versione funzionante del progetto e il branch `develop` che contiene la versione in sviluppo e con bug.
 - I messaggi di commit non devono essere a caso, ma devono rappresentare le modifiche fatta dalla versione precedente anche in piccola parte ad esempio: `fixed` diventa `fixed splash screen bug` 
-###### git init ripetuto più volte o errore
+
 - Non creare git dentro dei git già esistenti, controlla sempre che nella directory con ci siano altre sotto directory `.git`, deve essere sempre solo una, tranne se si parla di `sotto-moduli git`, ma è un'argomento diverso e più complesso. Per controllare velocemente questa cosa raggiungi la directory dove è presente la cartella `.git` principale e lancia questo comando: `find . -name 
 ".git"` se la risposta sarà la seguente: 
+
+###### - git init ripetuto più volte o errore submodules 
 ```bash
 ❯ find . -name ".git"
 
@@ -89,6 +91,8 @@ Adesso, lanciando nuovamente il comando: `find . -name ".git"` la risposta corre
 
 ./.git
 ```
+###### per altri errori riguardanti i submodules già committati: segui questa guida: [@guide](https://gist.github.com/myusuf3/7f645819ded92bda6677)
+###### per altri errori riguardanti i submodules già pushati: [contattami- skype](https://join.skype.com/invite/ibNkhh8fTBg9) o sull'intra: [@dlanotte](https://profile.intra.42.fr/users/dlanotte)
 ## Utilizzo
 ### comandi generali
 -- # = commenti                                            
@@ -124,7 +128,7 @@ No commits yet
 
 nothing to commit (create/copy files and use "git add" to track)
 ```
-###### add files response
+###### untracked files response
 
 ```git
 On branch master
@@ -139,7 +143,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-Tipi principali di files = Untracked, removed, added, modified ---|--- per altri tipi: [@Documentation](https://git-scm.com/docs/git-status)
+Tipi principali di files = Untracked, removed, added, modified ---|--- per altri tipi: [@git-docs](https://git-scm.com/docs/git-status)
 
 `git add [nome file]` aggiunge il file ai documenti tracciati, con `git add *` aggiungi tutti i file della cartella
 ###### first response = alcun file individuato, aggiungere file per trovare le aggiunte
@@ -151,6 +155,21 @@ No commits yet
 
 nothing to commit (create/copy files and use "git add" to track)
 ```
+###### Nota speciale in caso di aggiunta sbagliata
+Se vengono aggiunti file che non si vuole committare (*eseguire un backup prima*) basterà eseguire il comando `git rm --cached [nome-file/cartella]` in caso di errori o altro git consiglia di aggiungere la flag -r per eliminare quei file dalla coda, comando finale: `git rm -r --cached [nome-file/cartella]`
+
+`git remote [!general-flags]` Impostazioni generali per il push        
+`git remote` Visualizza i server git collegati al repository     
+`git remote add [name] [url]` Aggiunge sotto il nome di name l'url del server di git    
+`git remote remove [name]` Rimuove un remote address
+
+`git push [!flags]` conferma i commit effettuati e gli invia al server impostato     
+#####  Si divide in 
+
+- primo push verso `origin` e branch `master` - `git push -u origin master`
+- push normale verso il server default (origin, dopo il primo push) `git push`
+- push verso server custom `git push server_address master`
+- push verso server custom e branch custom `git push address branch`
 
 ## Contributing
-@dlanotte
+[@dlanotte](https://profile.intra.42.fr/users/dlanotte)
