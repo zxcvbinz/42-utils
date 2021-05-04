@@ -59,6 +59,36 @@ to read about a specific subcommand or concept.
 - In caso di condivisione del repository è sempre bene fare un git pull del repository, in modo da aggiornarlo all'ultima versione in caso non si stia lavorando su due branch diversi
 *Branch = diversa copia di progetto con file diversi o uguali sullo stesso repository (di solito su un progetto c'è il branch `master` che contiene la versione funzionante del progetto e il branch `develop` che contiene la versione in sviluppo e con bug.
 - I messaggi di commit non devono essere a caso, ma devono rappresentare le modifiche fatta dalla versione precedente anche in piccola parte ad esempio: `fixed` diventa `fixed splash screen bug` 
+###### git init ripetuto più volte o errore
+- Non creare git dentro dei git già esistenti, controlla sempre che nella directory con ci siano altre sotto directory `.git`, deve essere sempre solo una, tranne se si parla di `sotto-moduli git`, ma è un'argomento diverso e più complesso. Per controllare velocemente questa cosa raggiungi la directory dove è presente la cartella `.git` principale e lancia questo comando: `find . -name 
+".git"` se la risposta sarà la seguente: 
+```bash
+❯ find . -name ".git"
+
+./.git
+./ciao/.git
+./ciao-2/.git
+```
+vuol dire che il repository è contaminato e le subdirectory `./ciao/.git` e `./ciao-2/.git` andranno eliminate per eliminare le sub-directory velocemente utilizzare il comando `find ./* -name ".git"` e controllare che esca un risultato simile: 
+```bash 
+❯ find ./* -name ".git"
+
+./ciao/.git
+./ciao-2/.git
+```
+adesso bisognerà aggiungere le flags `-exec rm -rf "{}" \`, in questo modo i file verrano eliminati. Comando finale: `find ./* -type d -name ".git" -exec rm -rf "{}" \;` risposta: 
+```bash 
+❯ find ./* -type d -name ".git" -exec rm -rf "{}" \;
+
+find: ./ciao/.git: No such file or directory
+find: ./ciao-2/.git: No such file or directory
+```
+Adesso, lanciando nuovamente il comando: `find . -name ".git"` la risposta corretta sarà: 
+```bash 
+❯ find . -name ".git"
+
+./.git
+```
 ## Utilizzo
 ### comandi generali
 -- # = commenti                                            
