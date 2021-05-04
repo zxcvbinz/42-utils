@@ -171,5 +171,9 @@ Se vengono aggiunti file che non si vuole committare (*eseguire un backup prima*
 - push verso server custom `git push server_address master`
 - push verso server custom e branch custom `git push address branch`
 
+## simple-git-beta
+progetto git semplificato attraverso una finta GUI in zsh/bash repo: [42-utils-simple-git](https://github.com/zxcvbinz/42-utils/tree/master/simple-git) # versione beta disponibile - funzioni limitate - agg. 04-05-2021   
+Se vuoi contribuire contattami! [@dlanotte](https://profile.intra.42.fr/users/dlanotte)
+
 ## Contributing
 [@dlanotte](https://profile.intra.42.fr/users/dlanotte)
