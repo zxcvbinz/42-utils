@@ -50,10 +50,17 @@ collaborate (see also: git help workflows)
 concept guides. See 'git help <command>' or 'git help <concept>'
 to read about a specific subcommand or concept.
 ```
-
+## Stati dei file
+- Non tracciato `il file esiste ma git non ne tiene conto al fine del invio su server`
+- Tracciato `il file viene tracciato, git sa dell'esistenza e ne tiene traccia della copia`
+- Committato `viene aggiunta una descrizione al file e viene fatta una copia dello stesso associata al id della commit`
+- Pushato `il file esiste sul server e la versione attuale corrisponde all'id della commit fatta sul client`
+## Consigli generali 
+- In caso di condivisione del repository è sempre bene fare un git pull del repository, in modo da aggiornarlo all'ultima versione in caso non si stia lavorando su due branch diversi
+*Branch = diversa copia di progetto con file diversi o uguali sullo stesso repository (di solito su un progetto c'è il branch `master` che contiene la versione funzionante del progetto e il branch `develop` che contiene la versione in sviluppo e con bug.
+- I messaggi di commit non devono essere a caso, ma devono rappresentare le modifiche fatta dalla versione precedente anche in piccola parte ad esempio: `fixed` diventa `fixed splash screen bug` 
 ## Utilizzo
 ### comandi generali
-
 -- # = commenti                                            
 -- ! = parametro non necessario
 
