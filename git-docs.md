@@ -53,11 +53,12 @@ to read about a specific subcommand or concept.
 ## Stati dei file
 - Non tracciato `il file esiste ma git non ne tiene conto al fine del invio su server`
 - Tracciato `il file viene tracciato, git sa dell'esistenza e ne tiene traccia della copia`
-- Committato `viene aggiunta una descrizione al file e viene fatta una copia dello stesso associata al id della commit`
+- Committato `viene aggiunta una descrizione al file e viene fatta una copia dello stesso associata all'id della commit`
 - Pushato `il file esiste sul server e la versione attuale corrisponde all'id della commit fatta sul client`
+
 ## Consigli generali 
-- In caso di condivisione del repository è sempre bene fare un git pull del repository, in modo da aggiornarlo all'ultima versione in caso non si stia lavorando su due branch diversi
-*Branch = diversa copia di progetto con file diversi o uguali sullo stesso repository (di solito su un progetto c'è il branch `master` che contiene la versione funzionante del progetto e il branch `develop` che contiene la versione in sviluppo e con bug.
+- In caso di condivisione del repository è sempre bene fare un git pull del repository, in modo da aggiornarlo all'ultima versione in caso non si stia lavorando su due branch diversi.    
+`definizione branch = seconda` [istanza](https://it.wikipedia.org/wiki/Istanza#:~:text=Istanza%20–%20in%20informatica%2C%20una%20determinata,sistema%20(task%20o%20tool).) `del progetto (di solito su un progetto c'è il branch `master` che contiene la versione funzionante del progetto e il branch `develop` che contiene la versione in sviluppo e con bug.`
 - I messaggi di commit non devono essere a caso, ma devono rappresentare le modifiche fatta dalla versione precedente anche in piccola parte ad esempio: `fixed` diventa `fixed splash screen bug` 
 
 - Non creare git dentro dei git già esistenti, controlla sempre che nella directory con ci siano altre sotto directory `.git`, deve essere sempre solo una, tranne se si parla di `sotto-moduli git`, ma è un'argomento diverso e più complesso. Per controllare velocemente questa cosa raggiungi la directory dove è presente la cartella `.git` principale e lancia questo comando: `find . -name 
@@ -155,8 +156,8 @@ No commits yet
 
 nothing to commit (create/copy files and use "git add" to track)
 ```
-###### Nota speciale in caso di aggiunta sbagliata
-Se vengono aggiunti file che non si vuole committare (*eseguire un backup prima*) basterà eseguire il comando `git rm --cached [nome-file/cartella]` in caso di errori o altro git consiglia di aggiungere la flag -r per eliminare quei file dalla coda, comando finale: `git rm -r --cached [nome-file/cartella]`
+###### Nota speciale in caso di aggiunta sbagliata -  nb: eseguire un backup prima.
+Se nella coda di file tracciati (vedi tipi file) dovessero essere presenti file spazzatura o file aggiunti per errore (`.DS_Store`, `.gitignore`, ecc) basterà eseguire il comando `git rm --cached [nome-file/cartella]` in caso di errori o altro git consiglia di aggiungere la flag -r per eliminare quei file dalla coda, comando finale: `git rm -r --cached [nome-file/cartella]`
 
 `git remote [!general-flags]` Impostazioni generali per il push        
 `git remote` Visualizza i server git collegati al repository     
