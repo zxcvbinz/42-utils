@@ -19,7 +19,7 @@
 #        444444444422222222222222222222   "Y88888P"   "Y888 888 888  88888P' 
 ##################################################################################################    
 
-if [ -d "$HOME/goinfre/.Applications/Visual Studio Code.app/" ]; then
+if [ -f "$HOME/goinfre/.Applications/Visual Studio Code.app/" ]; then
 	clear;
 elif [ -d "$HOME/goinfre/.brew/Caskroom/visual-studio-code" ]; then
 	brew cleanup
@@ -29,7 +29,7 @@ else
 	brew install --cask visual-studio-code
 fi
 
-if [ -d "$HOME/goinfre/.Applications/Godot.app/" ]; then
+if [ -f "$HOME/goinfre/.Applications/Godot.app/" ]; then
 	clear;
 elif [ -d "$HOME/goinfre/.brew/Caskroom/godot" ]; then
 	brew cleanup
@@ -39,7 +39,7 @@ else
 	brew install --cask godot
 fi
 
-if [ -d "$HOME/goinfre/.Applications/Postman.app/" ]; then
+if [ -f "$HOME/goinfre/.Applications/Postman.app/" ]; then
 	clear;
 elif [ -d "$HOME/goinfre/.brew/Caskroom/postman" ]; then
 	brew cleanup
